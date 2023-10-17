@@ -1,16 +1,20 @@
 <script>
   import { store } from '../assets/data/store';
-  import Card from './partials/Card.vue';
+  import CustomCards from './partials/CustomCards.vue';
 
 export default{
   name: 'Wrapper',
+  props:{
+    title: String,
+    type: String
+  },
   data(){
     return{
       store
     }
   },
   components:{
-    Card
+    CustomCards
   }
 }
 </script>
@@ -18,21 +22,15 @@ export default{
 <template>
 
   <div class="container my-5">
-    <h1>Film</h1>
+    <h1>{{ title }}</h1>
     <div class="row row-cols-4">
 
-      <div
-        v-for="item in store.movie"
+      <CustomCards
+        v-for="item in store[type]"
         :key="item.id"
         class="card"
-      >
-        <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
-          <h6 class="card-title">{{ item.original_title }}</h6>
-          <p class="card-text">Lingua: {{ item.original_language }}</p>
-          <p class="card-text">Voto: {{ item.vote_average }}</p>
-        </div>
-      </div>
+        :item= "item"
+      />
 
     </div>
 

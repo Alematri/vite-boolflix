@@ -16,19 +16,20 @@
     }
   },
   methods:{
-    getApi(){
-      axios.get(store.apiUrl, {
+    getApi(type){
+      axios.get(store.apiUrl + type, {
         params: store.apiParams
       })
-        .then(res => {
-          
-          store.movie = res.data.results;
-          console.log(res.store.movie);
-
+        .then(res => {  
+          store[type] = res.data.results;
         })
         .catch(err => {
           console.log(err);
         });
+    },
+    startSearch(){
+      this.getApi('movie')
+      this.getApi('tv')
     }
   },
   mounted(){
@@ -39,9 +40,10 @@
 </script>
 
 <template>
-  <Header @startSearch="getApi" />
-  <Wrapper /> 
-  <Card />
+  <Header @startSearch="startSearch" />
+  <Wrapper title="Film" type="movie" />
+  <Wrapper title="Serie TV" type="tv" />
+  <CustomCards />
 </template>
 
 <style lang="scss">
