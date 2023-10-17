@@ -1,6 +1,6 @@
 <script>
     import axios from 'axios';
-    import {store} from './data/store.js';
+    import {store} from './assets/data/store';
     import Header from './components/Header.vue';
     import Wrapper from './components/Wrapper.vue';
 
@@ -15,12 +15,31 @@
       store
     }
   },
+  methods:{
+    getApi(){
+      axios.get(store.apiUrl, {
+        params: store.apiParams
+      })
+        .then(res => {
+          
+          store.movie = res.data.results;
+          console.log(res.store.movie);
+
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  mounted(){
+
+  }
 }
 
 </script>
 
 <template>
-  <Header />
+  <Header @startSearch="getApi" />
   <Wrapper /> 
   <Card />
 </template>
