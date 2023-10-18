@@ -23,5 +23,8 @@
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
+  .fa-star{
+    color: yellow;
+  }
 </style>

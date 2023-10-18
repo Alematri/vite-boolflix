@@ -23,7 +23,7 @@ export default{
 
   <div class="container my-5">
     <h1>{{ title }}</h1>
-    <div class="row row-cols-4">
+    <div class="row">
 
       <CustomCards
         v-for="item in store[type]"
@@ -39,4 +39,7 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+  h1{
+    color: white;
+  }
 </style>

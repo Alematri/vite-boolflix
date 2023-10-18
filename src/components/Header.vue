@@ -38,7 +38,7 @@ export default{
 
 <style lang="scss" scoped>
   header{
-    height: 50px;
+    height: 40px;
     .logo{
       height: 100%;
       img{

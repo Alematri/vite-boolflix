@@ -47,5 +47,10 @@
 </template>
 
 <style lang="scss">
+
   @use './scss/main.scss';
+
+  body{
+    background-color: black;
+  }
 </style>
