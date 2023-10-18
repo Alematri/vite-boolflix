@@ -8,11 +8,13 @@
   name: 'App',
   components:{
     Header,
-    Wrapper
+    Wrapper,
   },
   data(){
     return{
-      store
+      store,
+      displayMovie: false,
+      displayTv: false 
     }
   },
   methods:{
@@ -20,8 +22,15 @@
       axios.get(store.apiUrl + type, {
         params: store.apiParams
       })
-        .then(res => {  
+      .then((res) => {
           store[type] = res.data.results;
+          if (res.data.results && res.data.results.length > 0) {
+            if (type === 'movie') {
+              this.displayMovie = true;
+            } else if (type === 'tv') {
+              this.displayTv = true;
+            }
+          }
         })
         .catch(err => {
           console.log(err);
@@ -41,9 +50,8 @@
 
 <template>
   <Header @startSearch="startSearch" />
-  <Wrapper title="Film" type="movie" />
-  <Wrapper title="Serie TV" type="tv" />
-  <CustomCards />
+  <Wrapper title="Film" type="movie" v-if="displayMovie" />
+  <Wrapper title="Serie TV" type="tv" v-if="displayTv" />
 </template>
 
 <style lang="scss">

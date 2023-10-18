@@ -8,5 +8,7 @@ export const store = reactive({
     query: '',
   },
   movie: [],
-  tv: []
+  tv: [],
+  displayMovie: false,
+  displayTv: false,
 });

@@ -22,7 +22,7 @@ export default{
 <template>
 
   <div class="container my-5">
-    <h1>{{ title }}</h1>
+    <h1 v-if="store[type].length > 0">{{ title }}</h1>
     <div class="row">
 
       <CustomCards
