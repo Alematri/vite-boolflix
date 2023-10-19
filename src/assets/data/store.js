@@ -9,6 +9,5 @@ export const store = reactive({
   },
   movie: [],
   tv: [],
-  displayMovie: false,
-  displayTv: false,
+  type: ''
 });

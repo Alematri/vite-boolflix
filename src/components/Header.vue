@@ -23,7 +23,7 @@ export default{
     <div class="d-flex">
       <input @keyup.enter="$emit('startSearch')" v-model.trim="store.apiParams.query" class="form-control" type="text" placeholder="Cerca un film">
 
-      <select class="form-select ms-3">
+      <select v-model="store.type" class="form-select ms-3">
         <option value="">All</option>
         <option value="movie">Film</option>
         <option value="tv">Serie TV</option>
@@ -39,6 +39,12 @@ export default{
 <style lang="scss" scoped>
   header{
     height: 40px;
+    select{
+    width: 120px;
+    }
+    input{
+    width: 300px;
+    }
     .logo{
       height: 100%;
       img{
@@ -46,4 +52,9 @@ export default{
       }
     }
   }
+
+
+
+
+
 </style>
