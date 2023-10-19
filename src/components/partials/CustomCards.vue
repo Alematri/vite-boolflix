@@ -54,6 +54,8 @@ import Stars from './Stars.vue';
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-bottom-right-radius: var(--bs-card-inner-border-radius);
+      border-bottom-left-radius: var(--bs-card-inner-border-radius);
     }
 
     .card-body {
@@ -64,6 +66,10 @@ import Stars from './Stars.vue';
       color: white;
       width: 100%;
       height: 100%;
+      border-bottom-right-radius: var(--bs-card-inner-border-radius);
+      border-bottom-left-radius: var(--bs-card-inner-border-radius);
+      border-top-right-radius: var(--bs-card-inner-border-radius);
+      border-top-left-radius: var(--bs-card-inner-border-radius);
     }
 
     .card-body.active {
